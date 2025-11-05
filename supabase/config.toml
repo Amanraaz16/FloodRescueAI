@@ -1,0 +1,16 @@
+project_id = "auwjdnxhemjtzlxptfwl"
+
+[functions.get-weather]
+verify_jwt = false
+
+[functions.calm-chat]
+verify_jwt = false
+
+[functions.assess-flood-risk]
+verify_jwt = false
+
+[functions.get-shelters]
+verify_jwt = false
+
+[functions.get-mapbox-token]
+verify_jwt = false

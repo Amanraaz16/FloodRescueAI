@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep water blue - primary action */
+    --primary: 205 87% 29%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Safe zone green */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Warning amber */
+    --accent: 38 92% 50%;
+    --accent-foreground: 215 25% 15%;
+
+    /* High risk red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Medium risk orange */
+    --warning: 25 95% 53%;
+    --warning-foreground: 215 25% 15%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 205 87% 29%;
+
+    --radius: 0.75rem;
+
+    /* Gradient definitions */
+    --gradient-water: linear-gradient(135deg, hsl(205 87% 29%), hsl(200 90% 45%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 72% 51%), hsl(15 90% 55%));
+    --gradient-warning: linear-gradient(135deg, hsl(25 95% 53%), hsl(38 92% 50%));
+    --gradient-safe: linear-gradient(135deg, hsl(142 76% 36%), hsl(152 69% 31%));
+    
+    /* Shadow definitions */
+    --shadow-elevation: 0 8px 24px -4px hsl(205 87% 29% / 0.2);
+    --shadow-alert: 0 8px 32px hsl(0 72% 51% / 0.4);
+  }
+
+  .dark {
+    --background: 215 28% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 205 90% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 69% 31%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 25 95% 53%;
+    --warning-foreground: 215 25% 15%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 205 90% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
