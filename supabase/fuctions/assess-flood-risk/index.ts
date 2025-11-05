@@ -50,8 +50,8 @@ serve(async (req) => {
           // OpenWeather One Call API 3.0: hourly contains FORECAST (next 48h), not past data
           // For current rainfall, we use the main weather endpoint data
           let rainfallHistory = "No significant recent rainfall detected.";
-          let currentRainfall1h = weatherData.rain?.['1h'] || 0;
-          let currentRainfall3h = weatherData.rain?.['3h'] || 0;
+          const currentRainfall1h = weatherData.rain?.['1h'] || 0;
+          const currentRainfall3h = weatherData.rain?.['3h'] || 0;
           let totalRainfall48h = Math.max(currentRainfall1h, currentRainfall3h); // Use available recent data
           let sustainedRainfall = false;
           let forecastRainfall48h = 0;
@@ -62,7 +62,7 @@ serve(async (req) => {
             
             // Check for government weather alerts
             if (oneCallData.alerts && oneCallData.alerts.length > 0) {
-              const alerts = oneCallData.alerts.map((alert: any) => 
+              const alerts = oneCallData.alerts.map((alert: { event: string; description: string }) => 
                 `- ${alert.event}: ${alert.description.slice(0, 200)}`
               ).join('\n');
               governmentAlerts = `\nGOVERNMENT WEATHER ALERTS:\n${alerts}\n`;
@@ -72,14 +72,14 @@ serve(async (req) => {
             // FORECAST rainfall for next 48 hours from hourly data
             if (oneCallData.hourly && oneCallData.hourly.length > 0) {
               const next48Hours = oneCallData.hourly.slice(0, Math.min(48, oneCallData.hourly.length));
-              forecastRainfall48h = next48Hours.reduce((sum: number, hour: any) => {
+              forecastRainfall48h = next48Hours.reduce((sum: number, hour: { rain?: { '1h'?: number } }) => {
                 return sum + (hour.rain?.['1h'] || 0);
               }, 0);
               
               // Check forecast for sustained rainfall pattern
               let consecutiveRainHours = 0;
               let maxConsecutive = 0;
-              next48Hours.forEach((hour: any) => {
+              next48Hours.forEach((hour: { rain?: { '1h'?: number } }) => {
                 if ((hour.rain?.['1h'] || 0) > 1) { // More than 1mm/h
                   consecutiveRainHours++;
                   maxConsecutive = Math.max(maxConsecutive, consecutiveRainHours);
@@ -105,7 +105,7 @@ serve(async (req) => {
             // Get daily forecast for additional context
             if (oneCallData.daily && oneCallData.daily.length > 0) {
               const next2Days = oneCallData.daily.slice(0, 2);
-              const dailyRainTotal = next2Days.reduce((sum: number, day: any) => {
+              const dailyRainTotal = next2Days.reduce((sum: number, day: { rain?: number }) => {
                 return sum + (day.rain || 0);
               }, 0);
               

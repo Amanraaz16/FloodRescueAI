@@ -17,8 +17,21 @@ const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: numbe
   return R * c;
 };
 
+interface Shelter {
+  id: number;
+  name: string;
+  address: string;
+  type: string;
+  capacity: number;
+  facilities: string[];
+  coordinates: [number, number];
+  phone: string;
+  distance: number;
+  source: string;
+}
+
 // Fetch real shelters from OpenStreetMap Overpass API
-async function fetchRealShelters(lat: number, lon: number): Promise<any[]> {
+async function fetchRealShelters(lat: number, lon: number): Promise<Shelter[]> {
   try {
     // Query for emergency shelters, hospitals, schools, community centers within 10km
     const overpassQuery = `
@@ -50,9 +63,26 @@ async function fetchRealShelters(lat: number, lon: number): Promise<any[]> {
     }
 
     const data = await response.json();
-    const shelters: any[] = [];
+    const shelters: Shelter[] = [];
 
-    data.elements.forEach((element: any, index: number) => {
+    interface OverpassElement {
+      lat?: number;
+      lon?: number;
+      center?: { lat: number; lon: number };
+      tags?: {
+        name?: string;
+        amenity?: string;
+        building?: string;
+        emergency?: string;
+        phone?: string;
+        "contact:phone"?: string;
+        "addr:street"?: string;
+        "addr:city"?: string;
+        "addr:postcode"?: string;
+      };
+    }
+
+    data.elements.forEach((element: OverpassElement, index: number) => {
       const shelterLat = element.lat || element.center?.lat;
       const shelterLon = element.lon || element.center?.lon;
       
@@ -131,7 +161,7 @@ async function fetchRealShelters(lat: number, lon: number): Promise<any[]> {
 }
 
 // Fallback: Generate shelters if OSM returns no results
-function generateFallbackShelters(lat: number, lon: number): any[] {
+function generateFallbackShelters(lat: number, lon: number): Shelter[] {
   const shelterTypes = [
     { type: "District Hospital", facilities: ["Medical Care", "Water", "Emergency Services"], capacity: 300, phone: "108" },
     { type: "Government School", facilities: ["Water", "Food", "Large Space"], capacity: 500, phone: "1070" },
