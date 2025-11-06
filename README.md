@@ -1,73 +1,104 @@
-# Welcome to your Lovable project
+# 🌊 FloodRescueAI
 
-## Project info
+FloodRescueAI is an AI-powered web application designed to assist during flood emergencies. It provides **real-time flood prediction**, **interactive evacuation routing**, **health-based nutrition suggestions**, and **essential hygiene tips** for affected regions. Built with modern web technologies, this app aims to support users in making informed decisions during natural disasters.
 
-**URL**: https://lovable.dev/projects/6d1de4cb-597b-4086-a86d-ba787819c974
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **AI-Based Flood Prediction**  
+  Predicts potential flood risk levels based on real-time and historical data.
 
-**Use Lovable**
+- **Interactive Evacuation Route Planner**  
+  Powered by Mapbox, users can safely and quickly identify optimized evacuation routes.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6d1de4cb-597b-4086-a86d-ba787819c974) and start prompting.
+- **Personalized Nutrition and Health Tips**  
+  Offers customized food and wellness suggestions based on user age, gender, and medical conditions.
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Critical Hygiene Tips During Floods**  
+  Includes 15+ creative and practical hygiene best practices.
 
-**Use your preferred IDE**
+- **Responsive UI**  
+  Fully mobile-friendly and designed with minimal, modern components.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Fast & Lightweight**  
+  Built using Vite and React with TypeScript and Tailwind CSS for rapid performance.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🛠️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend Framework:** React + TypeScript + Vite  
+- **UI Components:** Shadcn/UI, Radix UI, TailwindCSS  
+- **Maps Integration:** Mapbox GL JS & Mapbox Directions JS  
+- **Form Handling:** React Hook Form + Zod  
+- **Data Management:** React Query  
+- **Animations & Charts:** Recharts, Lucide React  
+- **Build Tooling:** Vite  
+- **Other Tools:** Supabase (future potential), ESLint, Prettier
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📦 Installation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Clone the repository
+git clone https://github.com/your-username/FloodRescueAI.git
+
+# Navigate to the project directory
+cd FloodRescueAI
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+⚠️ You must add your own Mapbox access token in a .env file for the map features to work.
+Example:
+VITE_MAPBOX_ACCESS_TOKEN=your_mapbox_token_here
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📊 Roadmap
 
-## What technologies are used for this project?
+- [ ] Integrate user authentication (Supabase or Firebase)
+- [ ] Add real-time weather & rainfall predictions using OpenWeather API
+- [ ] Store recommended health and nutrition suggestions in a database
+- [ ] Convert into a PWA for offline support
+- [ ] Add multilingual support (Hindi, Bengali, etc.)
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🤝 Contribution
 
-## How can I deploy this project?
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/your-username/FloodRescueAI/issues).
 
-Simply open [Lovable](https://lovable.dev/projects/6d1de4cb-597b-4086-a86d-ba787819c974) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 📄 License
 
-Yes, you can!
+This project is **MIT Licensed**.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 👨‍💻 Author
+
+**Aman Raj**  
+B.Tech Student @ Vivekananda Global University  
+UID: 24TEC2CS643
+
+---
+
+## 🧠 Acknowledgments
+
+- Mapbox team for powerful geospatial tools  
+- Shadcn/UI for beautiful headless component library  
+- Vite for extremely fast build tooling  
+- OpenAI ChatGPT for assistance during prototyping
+
+---
+
+> If you like this project, please ⭐ the repository and share it!
