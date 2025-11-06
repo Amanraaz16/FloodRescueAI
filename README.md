@@ -54,6 +54,8 @@ npm install
 # Run the development server
 npm run dev
 
+```
+
 The Mapbox token is fetched securely via a Supabase Edge Function — no token is exposed in the client.
 
 
