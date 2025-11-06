@@ -54,9 +54,7 @@ npm install
 # Run the development server
 npm run dev
 
-⚠️ You must add your own Mapbox access token in a .env file for the map features to work.
-Example:
-VITE_MAPBOX_ACCESS_TOKEN=your_mapbox_token_here
+The Mapbox token is fetched securely via a Supabase Edge Function — no token is exposed in the client.
 
 
 ---
