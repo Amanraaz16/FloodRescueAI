@@ -173,6 +173,11 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Data Visualization Section */}
+            <div className="p-6 sm:p-8 bg-gradient-to-br from-background to-muted/10 rounded-2xl border-2 border-primary/20 shadow-elevation">
+              <FloodDataCharts />
+            </div>
+
             {/* Technical Details Section */}
             <div className="mt-6 p-6 sm:p-8 bg-gradient-to-br from-secondary/5 via-primary/5 to-accent/5 rounded-2xl border-2 border-secondary/30 shadow-elevation transition-all hover:scale-[1.01]">
               <h2 className="font-bold text-xl sm:text-2xl text-foreground mb-4 text-center">Powered by Advanced AI & GIS Technology</h2>
@@ -235,11 +240,6 @@ const Index = () => {
             </div>
 
             <RiskAssessment riskLevel={riskLevel} location={location} />
-
-            {/* Data Visualization Section */}
-            <div className="p-6 sm:p-8 bg-gradient-to-br from-background to-muted/10 rounded-2xl border-2 border-primary/20 shadow-elevation">
-              <FloodDataCharts />
-            </div>
 
             {locationCoordinates && (
               <EvacuationMap 
